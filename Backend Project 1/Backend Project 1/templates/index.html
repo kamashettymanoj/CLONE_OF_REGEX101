@@ -1,0 +1,102 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Regex Matcher App</title>
+
+    <style>
+
+        body {
+            font-family: Arial;
+            background-color: #f2f6ff;
+            text-align: center;
+        }
+
+        .box {
+            background: white;
+            padding: 25px;
+            width: 60%;
+            margin: auto;
+            margin-top: 60px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px gray;
+        }
+
+        textarea, input {
+            width: 90%;
+            padding: 10px;
+            margin: 10px;
+            font-size: 16px;
+        }
+
+        button {
+            padding: 10px 25px;
+            font-size: 18px;
+            background-color: #0066ff;
+            color: white;
+            border: none;
+            cursor: pointer;
+            border-radius: 6px;
+        }
+
+        .result {
+            margin-top: 20px;
+            background: #eaffea;
+            padding: 15px;
+            border-radius: 10px;
+        }
+
+        .error {
+            margin-top: 20px;
+            background: #ffdada;
+            padding: 15px;
+            border-radius: 10px;
+            color: red;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h2>🔎 Regex Matcher Web App</h2>
+
+    <form method="POST">
+
+        <textarea name="text" placeholder="Enter Test String Here..." required></textarea>
+
+        <input type="text" name="pattern" placeholder="Enter Regex Pattern Here..." required>
+
+        <br>
+
+        <button type="submit">Submit</button>
+
+    </form>
+
+
+    {% if matches %}
+    <div class="result">
+
+        <h3>Matched Results:</h3>
+
+        {% for match in matches %}
+            <p>{{ match }}</p>
+        {% endfor %}
+
+    </div>
+    {% endif %}
+
+
+    {% if error %}
+    <div class="error">
+        <h3>{{ error }}</h3>
+    </div>
+    {% endif %}
+
+</div>
+
+</body>
+</html>
